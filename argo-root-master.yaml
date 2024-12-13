@@ -1,0 +1,25 @@
+#### APP-IN-APP USES FOR CONTROL APPLICATIONS IN ONE MAIN APPLICATION
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-root-master
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: https://git.localcom/devops-infrastructure/argocd-infrastructure.git
+    targetRevision: main
+    path: Projects/
+    directory:
+      recurse: true
+  - repoURL: https://git.local.com/devops-infrastructure/argocd-infrastructure.git
+    targetRevision: main
+    path: Clusters
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

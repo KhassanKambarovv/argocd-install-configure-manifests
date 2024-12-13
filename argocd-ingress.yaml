@@ -1,0 +1,21 @@
+###  FOR BOUNDING HOST TO ARGO
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+  namespace: argocd
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: argocd-dns-name.kz
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 443
+
