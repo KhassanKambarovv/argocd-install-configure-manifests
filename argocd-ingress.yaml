@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: argocd-dns-name.kz
+  - host: argocd-dns-name.com
     http:
       paths:
       - path: /

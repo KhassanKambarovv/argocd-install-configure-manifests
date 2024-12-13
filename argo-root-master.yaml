@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   sources:
-  - repoURL: https://git.localcom/devops-infrastructure/argocd-infrastructure.git
+  - repoURL: https://git.local.com/devops-infrastructure/argocd-infrastructure.git
     targetRevision: main
     path: Projects/
     directory:
